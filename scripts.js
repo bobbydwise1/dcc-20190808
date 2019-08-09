@@ -11,13 +11,17 @@ Given the string "([)]" or "((()", you should return false.
 */
 
 const testing = (yourString) => {
-  let regex = /[\[]/
+  let regex = /[\[][^\[]*[\]]/
   return yourString.match(regex);
 }
 
 let test1 = "([])[]({})"; //true
 let test2 = "([)]"; //false
 let test3 = "((()"; //false
+
+console.log(testing(test1));
+console.log(testing(test2));
+console.log(testing(test3));
 
 $(document).ready(function() {
     $('#output-section-1').text(1);
