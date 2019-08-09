@@ -11,8 +11,16 @@ Given the string "([)]" or "((()", you should return false.
 */
 
 const testing = (yourString) => {
-  let regex = /[\[][^\[]*[\]]/
-  return yourString.match(regex);
+  let regex1 = /[\[][^\[]*[\]]/
+  let regex2 = /[\(][^\(]*[\)]/
+  let regex3 = /[\{][^\{]*[\}]/
+  let condition1 = yourString.match(regex1);
+  console.log('1: ',condition1)
+  let condition2 = yourString.match(regex2);
+  console.log('2: ',condition2)
+  let condition3 = yourString.match(regex3);
+  console.log('3: ',condition3)
+
 }
 
 let test1 = "([])[]({})"; //true
