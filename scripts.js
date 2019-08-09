@@ -10,22 +10,9 @@ For example, given the string "([])[]({})", you should return true.
 Given the string "([)]" or "((()", you should return false.
 */
 
-// const testing = (yourString) => {
-//   let regex1 = /[\[][^\[]*[\]]/
-//   let regex2 = /[\(][^\(]*[\)]/
-//   let regex3 = /[\{][^\{]*[\}]/
-//   let condition1 = yourString.match(regex1);
-//   console.log('1: ',condition1)
-//   let condition2 = yourString.match(regex2);
-//   console.log('2: ',condition2)
-//   let condition3 = yourString.match(regex3);
-//   console.log('3: ',condition3)
-//
-// }
-
 const testingRound = (yourString) => {
-  let regex1 = /[\(]/
-  let regex2 = /[\)]/
+  let regex1 = /[\(]/g
+  let regex2 = /[\)]/g
   let matches1 = yourString.match(regex1);
   let matches2 = yourString.match(regex2);
   if ((matches1 === null) && (matches2 === null)) {return 1}
@@ -34,8 +21,8 @@ const testingRound = (yourString) => {
 }
 
 const testingCurly = (yourString) => {
-  let regex1 = /[\{]/
-  let regex2 = /[\}]/
+  let regex1 = /[\{]/g
+  let regex2 = /[\}]/g
   let matches1 = yourString.match(regex1);
   let matches2 = yourString.match(regex2);
   if ((matches1 === null) && (matches2 === null)) {return 1}
@@ -44,8 +31,8 @@ const testingCurly = (yourString) => {
 }
 
 const testingSquare = (yourString) => {
-  let regex1 = /[\[]/
-  let regex2 = /[\]]/
+  let regex1 = /[\[]/g
+  let regex2 = /[\]]/g
   let matches1 = yourString.match(regex1);
   let matches2 = yourString.match(regex2);
   if ((matches1 === null) && (matches2 === null)) {return 1}
@@ -53,27 +40,34 @@ const testingSquare = (yourString) => {
   return 0;
 }
 
+const testingAll = (yourString) => {
+  if ((testingRound(yourString) == true) &&
+  (testingCurly(yourString) == true) &&
+  (testingSquare(yourString) == true)) {
+    return true
+  }
+  return false;
+}
+
 let test1 = "([])[]({})"; //true
 let test2 = "([)]"; //false
 let test3 = "((()"; //false
-let test4 = "][]"
+let test4 = "][]"; //false
 
-console.log(testingRound(test1));
-console.log(testingRound(test2));
-console.log(testingRound(test3));
-console.log(testingRound(test4));
-console.log('--------------')
-console.log(testingCurly(test1));
-console.log(testingCurly(test2));
-console.log(testingCurly(test3));
-console.log(testingCurly(test4));
-console.log('--------------')
-console.log(testingSquare(test1));
-console.log(testingSquare(test2));
-console.log(testingSquare(test3));
-console.log(testingSquare(test4));
-console.log('--------------')
+console.log(testingAll(test1)); //true
+console.log(testingAll(test2)); //incorrect true
+console.log(testingAll(test3)); //false
+console.log(testingAll(test4)); //false
+
 
 $(document).ready(function() {
-    $('#output-section-1').text(1);
+  $('#output-section-1').text(test1);
+  $('#output-section-2').text(test2);
+  $('#output-section-3').text(test3);
+  $('#output-section-4').text(test4);
+  $('#output-section-11').text(testingAll(test1));
+  $('#output-section-22').text(testingAll(test2));
+  $('#output-section-33').text(testingAll(test3));
+  $('#output-section-44').text(testingAll(test4));
+
 });
