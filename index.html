@@ -30,5 +30,13 @@
     <p><b><span id='output-section-2'></span> : <span id='output-section-22'></span></b></p>
     <p><b><span id='output-section-3'></span> : <span id='output-section-33'></span></b></p>
     <p><b><span id='output-section-4'></span> : <span id='output-section-44'></span></b></p>
+    <p>To improve the code, it needs to keep track of pairs, positions of pair characters, and see if pairs of pairs overlap.  "([)]" will need to resolve to:</p>
+    <ol>
+      <li>"(", paired with 2</li>
+      <li>"[", paired with 3</li>
+      <li>")", paired with 0</li>
+      <li>"]", paired with 1</li>
+    </ol>
+    <p>Overlap occurs at position 1 and 2.</p>
   </body>
 </html>
