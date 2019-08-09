@@ -10,6 +10,15 @@ For example, given the string "([])[]({})", you should return true.
 Given the string "([)]" or "((()", you should return false.
 */
 
+const testing = (yourString) => {
+  let regex = /[\[]/
+  return yourString.match(regex);
+}
+
+let test1 = "([])[]({})"; //true
+let test2 = "([)]"; //false
+let test3 = "((()"; //false
+
 $(document).ready(function() {
     $('#output-section-1').text(1);
 });
